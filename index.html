@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capt. Clean | Edmonton’s Top Window and Power Cleaning Company</title>
+<meta name="description" content="Contact us for your Residential and Commercial Exterior Washing needs in Edmonton.">
+<meta name="theme-color" content="#077DEB">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#077DEB; --sky-deep:#0559B2; --sky-soft:#DCEEFF; --cloud:#F2F8FF;
+  --sun:#FADA14; --sun-deep:#E8B800;
+  --navy:#0A2342; --navy-2:#12325C; --ink:#0A2342; --muted:#4A5F7C;
+  --paper:#FFFFFF; --line:#D3E3F5;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Schibsted Grotesk","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(90px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1220px,100% - 40px);margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);line-height:.95;margin:0;letter-spacing:.005em}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 16px/1 var(--body);text-decoration:none;padding:17px 26px;border-radius:999px;border:2px solid transparent;transition:transform .2s ease, background .2s ease, color .2s ease;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-sun{background:var(--sun);color:var(--navy);box-shadow:0 6px 0 var(--sun-deep)}
+.btn-sun:hover{box-shadow:0 8px 0 var(--sun-deep)}
+.btn-line{border-color:currentColor;color:var(--navy);background:transparent}
+.btn-line.light{color:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- top strip ---------- */
+.strip{background:var(--navy);color:#cfe2fb;font-size:14px}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:42px;flex-wrap:wrap}
+.strip .tag{font-family:var(--display);font-weight:800;font-size:19px;color:var(--sun);letter-spacing:.02em}
+.strip nav{display:flex;align-items:center;gap:22px}
+.strip a{text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.strip a:hover{color:#fff}
+.strip svg{width:15px;height:15px;fill:currentColor}
+
+/* ---------- header ---------- */
+.head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s, box-shadow .3s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:60}
+.head.scrolled{border-color:var(--line);box-shadow:0 10px 30px -20px rgba(10,35,66,.4)}
+.head .wrap{display:flex;align-items:center;gap:28px;min-height:88px}
+.brand img{height:68px;width:auto}
+.menu{display:flex;align-items:center;gap:6px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.menu>li{position:relative}
+.menu>li>a,.menu>li>button{font:600 16px/1 var(--body);color:var(--navy);text-decoration:none;padding:12px 16px;border-radius:999px;background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.menu>li>a:hover,.menu>li>button:hover,.menu>li>a[aria-current]{background:var(--cloud);color:var(--sky-deep)}
+.menu .caret{width:10px;height:10px;transition:transform .2s}
+.drop{position:absolute;top:calc(100% + 10px);left:0;min-width:290px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;list-style:none;margin:0;box-shadow:0 30px 50px -25px rgba(10,35,66,.45);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s}
+.has-drop:hover .drop,.has-drop:focus-within .drop,.has-drop.open .drop{opacity:1;visibility:visible;transform:none}
+.has-drop:hover .caret,.has-drop.open .caret{transform:rotate(180deg)}
+.drop a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;text-decoration:none;font-weight:500;font-size:15px}
+.drop a::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sky);flex:none}
+.drop a:hover{background:var(--cloud);color:var(--sky-deep)}
+.head .btn{padding:15px 22px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:14px;border:2px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--navy);position:relative;transition:.25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav-open .burger span{background:transparent}
+.nav-open .burger span::before{top:0;transform:rotate(45deg)}
+.nav-open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#BFE0FF 0%,#E4F2FF 55%,#fff 100%);padding:64px 0 90px}
+.clouds{position:absolute;inset:0;pointer-events:none}
+.cloud{position:absolute;fill:#fff;opacity:.9;animation:drift linear infinite}
+.cloud.c1{top:9%;width:240px;animation-duration:70s;animation-delay:-20s}
+.cloud.c2{top:52%;width:170px;opacity:.7;animation-duration:95s;animation-delay:-60s}
+.cloud.c3{top:24%;width:120px;opacity:.6;animation-duration:110s;animation-delay:-5s}
+@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
+.contrail{position:absolute;right:-40px;top:40px;width:62%;height:240px;pointer-events:none}
+.contrail path{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:trail 3.2s .6s ease-out forwards;opacity:.95}
+.contrail path+path{stroke-width:3;opacity:.7;animation-delay:.8s}
+@keyframes trail{to{stroke-dashoffset:0}}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center}
+.hero-copy h1{font-size:clamp(54px,7.4vw,108px);font-weight:900;color:var(--navy);text-transform:uppercase;line-height:.88}
+.hero-copy h1 .amp{color:var(--sky)}
+.hero-copy h2{font-family:var(--body);font-size:clamp(19px,1.9vw,23px);font-weight:500;line-height:1.4;color:var(--muted);margin:26px 0 34px;max-width:30ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-cta .btn-line{background:rgba(255,255,255,.6)}
+
+/* porthole */
+.cabin{position:relative;justify-self:center;width:min(440px,100%);padding:34px 34px 34px;border-radius:64px;background:linear-gradient(160deg,#fbfdff,#e3ebf4);box-shadow:inset 0 2px 0 #fff, inset 0 -6px 18px rgba(10,35,66,.08), 0 40px 70px -40px rgba(10,35,66,.55)}
+.porthole{position:relative;aspect-ratio:3/4;border-radius:130px;overflow:hidden;background:#9bb7cf;box-shadow:0 0 0 14px #fff, 0 0 0 16px #d6e1ec, inset 0 0 0 2px rgba(255,255,255,.5)}
+.porthole img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.porthole .dirty{filter:blur(5px) saturate(.35) brightness(1.08) contrast(.85);transform:scale(1.06)}
+.porthole .grime{position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 30%,rgba(255,255,255,.55) 0 3px,transparent 4px),
+  radial-gradient(circle at 70% 18%,rgba(255,255,255,.5) 0 2px,transparent 3px),
+  radial-gradient(circle at 44% 64%,rgba(255,255,255,.45) 0 4px,transparent 5px),
+  radial-gradient(circle at 82% 72%,rgba(255,255,255,.5) 0 3px,transparent 4px),
+  radial-gradient(circle at 30% 84%,rgba(255,255,255,.4) 0 2px,transparent 3px),
+  linear-gradient(180deg,rgba(214,226,236,.55),rgba(190,205,220,.35));background-size:90px 110px,70px 90px,120px 130px,100px 80px,60px 70px,100% 100%}
+.porthole .clear{clip-path:inset(0 0 0 100%);animation:wipe 2.1s 1s cubic-bezier(.55,.05,.35,1) forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+.porthole .glare{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.28) 42%,transparent 50%);pointer-events:none}
+.squeegee{position:absolute;top:-6%;bottom:-6%;left:100%;width:16px;z-index:3;animation:sweep 2.1s 1s cubic-bezier(.55,.05,.35,1) forwards, bye .4s 3.2s forwards}
+.squeegee::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#1c2430,#3b4656 60%,#1c2430);border-radius:8px;box-shadow:-6px 0 14px rgba(255,255,255,.6)}
+.squeegee::after{content:"";position:absolute;top:46%;left:12px;width:70px;height:16px;border-radius:9px;background:var(--sun);box-shadow:inset 0 -3px 0 var(--sun-deep)}
+@keyframes sweep{to{left:-8%}}
+@keyframes bye{to{opacity:0}}
+.captain{position:absolute;left:-150px;bottom:-34px;width:230px;z-index:4;filter:drop-shadow(0 18px 18px rgba(10,35,66,.25))}
+.cabin-note{position:absolute;right:-18px;top:46px;z-index:4;background:var(--navy);color:var(--sun);font:800 21px/1 var(--display);padding:12px 18px;border-radius:14px;transform:rotate(4deg);box-shadow:0 14px 24px -14px rgba(10,35,66,.6)}
+
+/* ---------- intro ---------- */
+.intro{padding:110px 0 100px;position:relative}
+.intro .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.intro-photo{position:relative}
+.intro-photo img{border-radius:28px;aspect-ratio:4/3;object-fit:cover;object-position:50% 96%;width:100%}
+.intro-photo .stamp{position:absolute;right:-26px;bottom:38px;width:150px;height:150px;border-radius:50%;background:var(--sun);display:grid;place-items:center;text-align:center;font:800 22px/1 var(--display);color:var(--navy);padding:20px;transform:rotate(-10deg);box-shadow:0 0 0 8px #fff}
+.kicker{font-weight:700;color:var(--sky);font-size:17px;margin:0 0 14px}
+.intro h2{font-size:clamp(40px,4.6vw,64px);font-weight:800;color:var(--navy)}
+.intro p.lead{font-size:19px;color:var(--muted);margin:26px 0 30px;max-width:56ch}
+.intro p.lead b{color:var(--navy)}
+.routes{list-style:none;padding:0;margin:0 0 34px;border-top:2px solid var(--navy)}
+.routes a{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:17px 4px;border-bottom:1px solid var(--line);text-decoration:none;font:700 clamp(22px,2.3vw,28px)/1 var(--display);color:var(--navy);transition:color .2s,padding .25s}
+.routes a::before{content:"";width:12px;height:12px;border-radius:50%;border:3px solid var(--sky)}
+.routes a svg{width:24px;height:24px;stroke:var(--sky);fill:none;stroke-width:2;transition:transform .25s}
+.routes a:hover{color:var(--sky-deep);padding-left:12px}
+.routes a:hover svg{transform:translateX(4px) rotate(-30deg)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+
+/* ---------- guarantee ---------- */
+.guarantee{position:relative;overflow:hidden;background:var(--sun) url(images/skyline-gold.jpg) center 70%/cover no-repeat;color:var(--navy);padding:110px 0 0}
+.guarantee::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,218,20,.55),rgba(250,218,20,.15) 60%,rgba(250,218,20,.4))}
+.rain{position:absolute;inset:-40px 0 0;pointer-events:none;background-image:
+  repeating-linear-gradient(103deg,transparent 0 46px,rgba(255,255,255,.55) 46px 47px,transparent 47px 120px),
+  repeating-linear-gradient(103deg,transparent 0 80px,rgba(10,35,66,.12) 80px 81px,transparent 81px 170px);
+  background-size:100% 160px,100% 220px;animation:rain 1.1s linear infinite;mask-image:linear-gradient(180deg,#000 30%,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 85%)}
+@keyframes rain{to{background-position:-40px 160px,-60px 220px}}
+.guarantee .g-top{position:relative;display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+.big14{font:900 clamp(170px,22vw,300px)/.78 var(--display);color:var(--navy);display:flex;align-items:flex-start;gap:8px}
+.big14 small{font-size:.22em;line-height:1;padding-top:.3em;font-weight:800}
+.guarantee h2{font-size:clamp(46px,5.4vw,78px);font-weight:900;text-transform:uppercase}
+.guarantee p{font-size:20px;line-height:1.55;font-weight:500;max-width:52ch;margin:22px 0 0}
+.gauges{position:relative;width:100%;margin-top:90px;background:var(--navy);border-radius:36px 36px 0 0;color:#fff;display:grid;grid-template-columns:repeat(3,1fr)}
+.gauge{display:flex;align-items:center;gap:22px;padding:40px 36px}
+.gauge+.gauge{border-left:1px solid rgba(255,255,255,.12)}
+.dial{width:112px;height:112px;flex:none;position:relative}
+.dial svg{width:100%;height:100%;overflow:visible}
+.dial .track{fill:none;stroke:rgba(255,255,255,.14);stroke-width:8;stroke-linecap:round}
+.dial .val{fill:none;stroke:var(--sun);stroke-width:8;stroke-linecap:round;stroke-dasharray:236;stroke-dashoffset:236;transition:stroke-dashoffset 1.6s cubic-bezier(.3,.7,.2,1)}
+.dial .needle{transform-origin:60px 60px;transform:rotate(-135deg);transition:transform 1.6s cubic-bezier(.3,.7,.2,1)}
+.dial .ticks line{stroke:rgba(255,255,255,.35);stroke-width:2}
+.gauge b{display:block;font:900 64px/0.9 var(--display);color:var(--sun)}
+.gauge span{font-weight:600;font-size:17px;color:#cfe2fb}
+
+/* ---------- reviews ---------- */
+.reviews{padding:110px 0 100px;background:var(--cloud);position:relative;overflow:hidden}
+.rev-head{display:flex;align-items:end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+.rev-head h2{font-size:clamp(46px,5.4vw,76px);font-weight:900;color:var(--navy);text-transform:uppercase}
+.rev-head p{margin:12px 0 0;font-weight:600;color:var(--muted);font-size:19px}
+.gscore{display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:14px 20px;border:1px solid var(--line)}
+.gscore svg.g{width:34px;height:34px}
+.stars{display:flex;gap:2px}
+.stars svg{width:18px;height:18px;fill:#F5B400}
+.gscore small{display:block;color:var(--muted);font-size:13px;font-weight:600}
+.rev-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(20px,calc((100vw - 1220px)/2)) 24px;scrollbar-width:none;cursor:grab;scroll-padding-inline:max(20px,calc((100vw - 1220px)/2))}
+.rev-track::-webkit-scrollbar{display:none}
+.rev{flex:0 0 min(380px,82vw);scroll-snap-align:start;background:#fff;border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:18px;border:1px solid var(--line);position:relative}
+.rev.feature{flex-basis:min(520px,88vw);background:var(--sky);color:#fff;border-color:var(--sky)}
+.rev.feature blockquote{font-size:21px;line-height:1.5}
+.rev.feature .who small{color:#d6eaff}
+.rev blockquote{margin:0;font-size:17px;line-height:1.6;flex:1}
+.rev .top{display:flex;align-items:center;justify-content:space-between}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:800 20px/1 var(--display);background:var(--navy);color:var(--sun)}
+.rev.feature .av{background:var(--sun);color:var(--navy)}
+.who strong{display:block;font-size:16px}
+.who small{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:6px}
+.who small svg{width:14px;height:14px}
+.rev-nav{display:flex;gap:10px}
+.rev-nav button{width:54px;height:54px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer;display:grid;place-items:center;transition:.2s}
+.rev-nav button:hover{background:var(--navy);color:var(--sun)}
+.rev-nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.4}
+.reviews .cta-row{justify-content:center;margin-top:30px}
+
+/* ---------- services ---------- */
+.services{padding:110px 0 0}
+.svc-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:30px;margin-bottom:48px}
+.svc-head h2{font-size:clamp(46px,5.4vw,76px);font-weight:900;color:var(--navy);text-transform:uppercase}
+.svc-head p{margin:0;color:var(--muted);font-weight:600;font-size:18px}
+.svc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-radius:30px;overflow:hidden;background:var(--sky)}
+.svc{position:relative;padding:44px 30px 36px;color:#fff;text-decoration:none;display:flex;flex-direction:column;gap:26px;min-height:340px;transition:background .3s}
+.svc+.svc{border-left:1px solid rgba(255,255,255,.22)}
+.svc:hover{background:var(--sky-deep)}
+.svc img{width:120px;height:120px;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.svc:hover img{transform:rotate(-8deg) scale(1.06)}
+.svc h3{font-size:clamp(28px,2.6vw,36px);font-weight:800;text-transform:uppercase;margin-top:auto}
+.svc .go{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:var(--sun)}
+.svc .go svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;transition:transform .25s}
+.svc:hover .go svg{transform:translateX(5px)}
+
+.commercial{margin-top:28px;display:grid;grid-template-columns:.85fr 1.15fr;align-items:stretch;background:var(--navy);border-radius:30px;overflow:hidden;color:#fff}
+.commercial figure{margin:0;position:relative;min-height:300px}
+.commercial figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.commercial figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--navy))}
+.commercial .txt{padding:52px 52px 52px 30px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+.commercial h3{font-family:var(--body);font-size:clamp(20px,1.9vw,24px);font-weight:600;line-height:1.5}
+.commercial .txt a.more{color:var(--sun);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-size:17px}
+.commercial .txt a.more:hover{text-decoration:underline}
+.services .cta-row{justify-content:center;margin-top:44px}
+
+/* ---------- trust ---------- */
+.trust{padding:100px 0}
+.trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--navy);border-bottom:2px solid var(--navy)}
+.trust-item{padding:40px 28px 38px;display:flex;flex-direction:column;gap:16px}
+.trust-item+.trust-item{border-left:1px solid var(--line)}
+.trust-item img{width:84px;height:84px}
+.trust-item h4{font-size:30px;font-weight:800;color:var(--navy);text-transform:uppercase}
+.trust-item p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+
+/* ---------- video ---------- */
+.video{padding:0 0 110px}
+.vframe{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:16/7;background:var(--navy)}
+.vframe button{all:unset;position:absolute;inset:0;cursor:pointer;display:grid;place-items:center}
+.vframe .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;opacity:.8;transition:transform .8s, opacity .4s}
+.vframe button:hover .poster{transform:scale(1.03);opacity:.65}
+.vframe .play{position:relative;width:118px;height:118px;border-radius:50%;background:var(--sun);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(250,218,20,.25)}
+.vframe .play svg{width:40px;height:40px;fill:var(--navy);margin-left:6px}
+.vframe .vlogo{position:absolute;left:34px;bottom:30px;width:170px;background:#fff;border-radius:16px;padding:8px}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ---------- quote boarding pass ---------- */
+.quote{position:relative;padding:110px 0;background:var(--sky);overflow:hidden}
+.quote::before{content:"";position:absolute;inset:0;background:url(images/skyline-blue.jpg) center bottom/cover no-repeat;opacity:.35;mix-blend-mode:multiply}
+.quote .wrap{position:relative}
+.quote h2{font-size:clamp(52px,6.4vw,92px);font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:38px}
+.pass{display:grid;grid-template-columns:1fr 330px;background:#fff;border-radius:30px;box-shadow:0 50px 80px -40px rgba(10,35,66,.7);position:relative}
+.pass-main{padding:42px 46px;border-right:3px dashed var(--line);position:relative}
+.pass-main::before,.pass-main::after{content:"";position:absolute;right:-22px;width:40px;height:40px;border-radius:50%;background:var(--sky)}
+.pass-main::before{top:-20px}.pass-main::after{bottom:-20px}
+.pass-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:22px;margin-bottom:26px;border-bottom:2px solid var(--navy)}
+.pass-top img{height:58px;width:auto}
+.route{display:flex;align-items:center;gap:14px;font:900 34px/1 var(--display);color:var(--navy)}
+.route svg{width:44px;height:44px;fill:var(--sky);transform:rotate(90deg)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:14px;font-weight:700;color:var(--muted)}
+.field input,.field select,.field textarea{font:500 17px/1.4 var(--body);color:var(--navy);padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:var(--cloud);transition:border-color .2s, background .2s;width:100%}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--sky);background:#fff}
+.pass-main .btn{margin-top:26px;border:0}
+.form-note{font-size:14px;color:var(--muted);margin:14px 0 0}
+.stub{padding:42px 34px;display:flex;flex-direction:column;gap:20px;background:linear-gradient(180deg,#fff, var(--cloud));border-radius:0 30px 30px 0;position:relative;overflow:hidden}
+.stub img.cap{width:170px;margin:0 auto -8px}
+.stub h3{font-size:34px;font-weight:900;color:var(--navy);text-transform:uppercase;text-align:center}
+.stub a.phone{display:block;text-align:center;font:900 36px/1 var(--display);color:var(--sky);text-decoration:none}
+.stub a.mail{display:block;text-align:center;font-weight:600;color:var(--navy)}
+.barcode{height:56px;margin-top:auto;background:repeating-linear-gradient(90deg,var(--navy) 0 3px,transparent 3px 5px,var(--navy) 5px 6px,transparent 6px 10px,var(--navy) 10px 14px,transparent 14px 16px);border-radius:4px;opacity:.85}
+
+/* ---------- footer ---------- */
+.foot{position:relative;background:var(--navy);color:#cfe2fb;padding:100px 0 0;overflow:hidden}
+.foot::before{content:"";position:absolute;inset:auto 0 0;height:75%;background:url(images/skyline-blue.jpg) center bottom/cover no-repeat;opacity:.3;-webkit-mask-image:linear-gradient(180deg,transparent,#000 55%);mask-image:linear-gradient(180deg,transparent,#000 55%)}
+.foot .wrap{position:relative}
+.foot-grid{display:grid;grid-template-columns:1.25fr 1fr .9fr;gap:60px}
+.about{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.about img{width:130px}
+.foot h4{font-size:30px;font-weight:800;color:#fff;text-transform:uppercase;margin-bottom:18px}
+.foot p{margin:0;font-size:16px;line-height:1.7}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot .links a{display:block;padding:7px 0;text-decoration:none;font-size:16px}
+.foot .links a:hover{color:var(--sun)}
+.blog-link{display:inline-flex;margin-top:30px;gap:12px;align-items:center;background:rgba(255,255,255,.07);padding:16px 20px;border-radius:16px;text-decoration:none;color:#fff;font-weight:600;border:1px solid rgba(255,255,255,.12)}
+.blog-link small{display:block;color:var(--sun);font-weight:700;font-size:13px}
+.blog-link:hover{background:rgba(255,255,255,.12)}
+
+.board{margin-top:80px;background:#071a33;border-radius:26px;padding:30px 30px 34px;border:1px solid rgba(255,255,255,.08)}
+.board-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.board-head h4{margin:0}
+.board-head p{max-width:46ch}
+.flaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 40px}
+.flap-row{display:flex;gap:3px}
+.flap{width:clamp(18px,2.1vw,27px);height:clamp(28px,3vw,40px);background:#132c4e;border-radius:4px;display:grid;place-items:center;font:800 clamp(17px,1.9vw,25px)/1 var(--display);color:var(--sun);position:relative;text-transform:uppercase}
+.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#071a33}
+.flap.sp{background:transparent}
+.flap.sp::after{display:none}
+
+.bottom{position:relative;margin-top:70px;border-top:1px solid rgba(255,255,255,.14);padding:26px 0 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:15px}
+.bottom .social{display:flex;gap:10px}
+.bottom .social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.bottom .social a:hover{background:var(--sun);color:var(--navy)}
+.bottom .social svg{width:18px;height:18px;fill:currentColor}
+.bottom a.cd{color:var(--sun);font-weight:700;text-decoration:none}
+.bottom a.cd:hover{text-decoration:underline}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .menu,.head .btn{display:none}
+  .burger{display:inline-flex}
+  .nav-open .menu{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:#fff;padding:12px 20px 24px;border-bottom:1px solid var(--line);box-shadow:0 30px 40px -30px rgba(10,35,66,.5);max-height:calc(100vh - 140px);overflow:auto}
+  .nav-open .menu>li>a,.nav-open .menu>li>button{width:100%;justify-content:space-between;padding:16px 12px;font-size:18px}
+  .drop{position:static;box-shadow:none;border:0;opacity:1;visibility:visible;transform:none;display:none;padding:0 0 0 8px}
+  .has-drop.open .drop{display:block}
+  .nav-open .menu .mobile-cta{display:block;padding-top:10px}
+  .hero .wrap{grid-template-columns:1fr;gap:70px}
+  .cabin{margin-left:110px}
+  .intro .wrap{grid-template-columns:1fr;gap:60px}
+  .intro-photo{max-width:520px}
+  .guarantee .g-top{grid-template-columns:1fr;gap:20px}
+  .gauges{grid-template-columns:1fr}
+  .gauge+.gauge{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc:nth-child(3){border-left:0}
+  .svc:nth-child(n+3){border-top:1px solid rgba(255,255,255,.22)}
+  .commercial{grid-template-columns:1fr}
+  .commercial figure::after{background:linear-gradient(180deg,transparent 60%,var(--navy))}
+  .commercial .txt{padding:10px 34px 40px}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-item:nth-child(3){border-left:0}
+  .trust-item:nth-child(n+3){border-top:1px solid var(--line)}
+  .pass{grid-template-columns:1fr}
+  .pass-main{border-right:0;border-bottom:3px dashed var(--line)}
+  .pass-main::before,.pass-main::after{right:auto;top:auto;bottom:-22px}
+  .pass-main::before{left:-20px}.pass-main::after{right:-20px}
+  .stub{border-radius:0 0 30px 30px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .about{grid-column:1/-1}
+}
+.mobile-cta{display:none}
+@media (max-width:640px){
+  body{font-size:16px}
+  .strip .tag{display:none}
+  .strip .wrap{justify-content:center}
+  .strip nav{gap:16px;font-size:13px}
+  .brand img{height:54px}
+  .head .wrap{min-height:74px}
+  .hero{padding:40px 0 70px}
+  .hero-copy h1{font-size:clamp(44px,13vw,64px)}
+  .cabin{margin-left:0;padding:22px;border-radius:48px;width:86%;justify-self:end}
+  .porthole{border-radius:100px}
+  .captain{width:140px;left:-70px;bottom:-26px}
+  .cabin-note{font-size:17px;right:-6px}
+  .intro{padding:80px 0}
+  .intro-photo .stamp{width:118px;height:118px;font-size:18px;right:-6px}
+  .big14{font-size:150px}
+  .gauge{padding:30px 22px}
+  .svc-grid{grid-template-columns:1fr}
+  .svc+.svc{border-left:0;border-top:1px solid rgba(255,255,255,.22)}
+  .svc{min-height:0}
+  .svc-head{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr}
+  .trust-item+.trust-item{border-left:0;border-top:1px solid var(--line)}
+  .vframe{aspect-ratio:4/3}
+  .vframe .vlogo{width:120px;left:20px;bottom:20px}
+  .pass-main{padding:30px 22px}
+  .fields{grid-template-columns:1fr}
+  .route{font-size:26px}
+  .pass-top img{height:44px}
+  .foot-grid{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .flaps{grid-template-columns:1fr}
+  .board{padding:22px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .porthole .clear{clip-path:none}
+  .squeegee{display:none}
+  .rain{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span class="tag">YEG’s Cleanest Windows!</span>
+    <nav aria-label="Contact">
+      <a href="tel:1-780-809-1575"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>1-780-809-1575</a>
+      <a href="mailto:info@captclean.com"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>info@captclean.com</a>
+      <a href="https://www.instagram.com/capt.clean.yeg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 8.2a5.4 5.4 0 0 0-1.5-3.8A5.4 5.4 0 0 0 16.6 3C15.1 2.9 8.9 2.9 7.4 3a5.4 5.4 0 0 0-3.8 1.4A5.4 5.4 0 0 0 2.1 8.2c-.1 1.5-.1 6.1 0 7.6a5.4 5.4 0 0 0 1.5 3.8A5.4 5.4 0 0 0 7.4 21c1.5.1 7.7.1 9.2 0a5.4 5.4 0 0 0 3.8-1.4 5.4 5.4 0 0 0 1.5-3.8c.1-1.5.1-6.1 0-7.6z"/></svg></a>
+      <a href="https://www.facebook.com/Capt-Clean-Window-Washing-102373932404450" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
+    </nav>
+  </div>
+</div>
+
+<header class="head" id="top">
+  <div class="wrap">
+    <a class="brand" href="https://captclean.com/" aria-label="Capt. Clean home"><img src="images/logo.png" alt="Capt. Clean Window Cleaning logo" width="750" height="461"></a>
+    <ul class="menu" id="menu">
+      <li><a href="https://captclean.com/" aria-current="page">Home</a></li>
+      <li class="has-drop">
+        <button type="button" aria-expanded="false" aria-haspopup="true">Services <svg class="caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button>
+        <ul class="drop">
+          <li><a href="https://captclean.com/our-services/residential-window-cleaning/">Residential Window Cleaning</a></li>
+          <li><a href="https://captclean.com/our-services/commercial-window-cleaning/">Commercial Window Cleaning</a></li>
+          <li><a href="https://captclean.com/our-services/solar-panel-cleaning/">Solar Panel Cleaning</a></li>
+          <li><a href="https://captclean.com/our-services/power-washing/">Power Washing</a></li>
+          <li><a href="https://captclean.com/our-services/exterior-house-wash/">Exterior House Wash</a></li>
+          <li><a href="https://captclean.com/our-services/driveway-sealing/">Driveway Sealing</a></li>
+          <li><a href="https://captclean.com/our-services/gutter-cleaning/">Gutter Cleaning</a></li>
+        </ul>
+      </li>
+      <li><a href="https://captclean.com/blog/">Blog</a></li>
+      <li class="mobile-cta"><a class="btn btn-sun" href="https://captclean.com/quote/">Request a Quote</a></li>
+    </ul>
+    <a class="btn btn-sun" href="https://captclean.com/quote/">Request a Quote</a>
+    <button class="burger" type="button" aria-label="Open menu" aria-controls="menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="clouds" aria-hidden="true">
+    <svg class="cloud c1" viewBox="0 0 200 80"><path d="M30 70a24 24 0 0 1 4-47 32 32 0 0 1 60-10 26 26 0 0 1 44 8 22 22 0 0 1 32 21 20 20 0 0 1 0 28z"/></svg>
+    <svg class="cloud c2" viewBox="0 0 200 80"><path d="M30 70a24 24 0 0 1 4-47 32 32 0 0 1 60-10 26 26 0 0 1 44 8 22 22 0 0 1 32 21 20 20 0 0 1 0 28z"/></svg>
+    <svg class="cloud c3" viewBox="0 0 200 80"><path d="M30 70a24 24 0 0 1 4-47 32 32 0 0 1 60-10 26 26 0 0 1 44 8 22 22 0 0 1 32 21 20 20 0 0 1 0 28z"/></svg>
+  </div>
+  <svg class="contrail" viewBox="0 0 800 240" aria-hidden="true" preserveAspectRatio="none"><path d="M0 220 C 260 200, 520 120, 800 20"/><path d="M0 232 C 260 212, 520 132, 800 32"/></svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>Edmonton’s Top Window <span class="amp">&amp;</span> Power Cleaning Company</h1>
+      <h2>Professional, Personal, and Quality Service</h2>
+      <div class="hero-cta">
+        <a class="btn btn-sun" href="https://captclean.com/quote/">Request a Quote</a>
+        <a class="btn btn-line" href="tel:+1-780-809-1575"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Call us: 1-780-809-1575</a>
+      </div>
+    </div>
+    <div class="cabin">
+      <div class="porthole">
+        <img class="dirty" src="images/house-washing.jpg" alt="" aria-hidden="true">
+        <div class="grime" aria-hidden="true"></div>
+        <img class="clear" src="images/house-washing.jpg" alt="Capt. Clean crew washing a two-storey Edmonton home with the branded Capt. Clean van in the driveway">
+        <div class="glare" aria-hidden="true"></div>
+        <div class="squeegee" aria-hidden="true"></div>
+      </div>
+      <img class="captain" src="images/captain.png" alt="Capt. Clean pilot mascot holding a window cleaning pole">
+      <span class="cabin-note">YEG’s Cleanest Windows!</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-photo">
+      <img src="images/house-washing.jpg" alt="The branded Capt. Clean van parked outside a client’s home" loading="lazy">
+      <div class="stamp">Family-owned &amp; local</div>
+    </div>
+    <div>
+      <p class="kicker">Local Cleaning Services</p>
+      <h2>We are Edmonton’s Top Local Window and Power Washing Company.</h2>
+      <p class="lead">Capt. Clean is a family-owned local business that prides itself on offering <b>premium service</b> with <b>competitive pricing</b> for Edmontonians. Built on professionalism, personal service, and quality care, we are the window cleaning company you can count on.</p>
+      <ul class="routes">
+        <li><a href="https://captclean.com/our-services/residential-window-cleaning/">Residential Window Cleaning<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        <li><a href="https://captclean.com/our-services/exterior-house-wash/">House Washing<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        <li><a href="https://captclean.com/our-services/gutter-cleaning/">Gutter Cleaning<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        <li><a href="https://captclean.com/our-services/power-washing/">Residential Power Washing<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        <li><a href="https://captclean.com/our-services/solar-panel-cleaning/">Solar Panel Cleaning<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        <li><a href="https://captclean.com/our-services/commercial-window-cleaning/">Commercial Window Cleaning<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-sun" href="https://captclean.com/quote/">Request a Quote</a>
+        <a class="btn btn-line" href="tel:1-780-809-1575">Give Us A Call!</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="rain" aria-hidden="true"></div>
+  <div class="wrap g-top">
+    <div class="big14" aria-hidden="true">14<small>day</small></div>
+    <div>
+      <h2>Our Mile-High Rain Guarantee</h2>
+      <p>Capt. Clean offers a 14-day rain guarantee from the date of our service visit for our residential clientele. If it rains and you would like your windows touched up, give us a call. Your satisfaction is that important to us.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gauges" id="gauges">
+      <div class="gauge" data-pct=".75">
+        <div class="dial"><svg viewBox="0 0 120 120"><g class="ticks"></g><path class="track" d="M23.3 96.7A52 52 0 1 1 96.7 96.7"/><path class="val" d="M23.3 96.7A52 52 0 1 1 96.7 96.7"/><g class="needle"><line x1="60" y1="60" x2="60" y2="22" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="60" r="7" fill="#FADA14"/></g></svg></div>
+        <div><b>15</b><span>Years of Experience</span></div>
+      </div>
+      <div class="gauge" data-pct=".6">
+        <div class="dial"><svg viewBox="0 0 120 120"><g class="ticks"></g><path class="track" d="M23.3 96.7A52 52 0 1 1 96.7 96.7"/><path class="val" d="M23.3 96.7A52 52 0 1 1 96.7 96.7"/><g class="needle"><line x1="60" y1="60" x2="60" y2="22" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="60" r="7" fill="#FADA14"/></g></svg></div>
+        <div><b>6+</b><span>Team Members</span></div>
+      </div>
+      <div class="gauge" data-pct="1">
+        <div class="dial"><svg viewBox="0 0 120 120"><g class="ticks"></g><path class="track" d="M23.3 96.7A52 52 0 1 1 96.7 96.7"/><path class="val" d="M23.3 96.7A52 52 0 1 1 96.7 96.7"/><g class="needle"><line x1="60" y1="60" x2="60" y2="22" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="60" r="7" fill="#FADA14"/></g></svg></div>
+        <div><b>100s</b><span>of Successful Jobs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" aria-labelledby="rev-title">
+  <div class="wrap">
+    <div class="rev-head">
+      <div>
+        <h2 id="rev-title">What People Are Saying</h2>
+        <p>Our Reviewers Speak For Themselves!</p>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <div class="gscore">
+          <svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3A12 12 0 1 1 31.9 15l5.7-5.7A20 20 0 1 0 44 24c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8A12 12 0 0 1 31.9 15l5.7-5.7A20 20 0 0 0 6.3 14.7z"/><path fill="#4CAF50" d="M24 44a20 20 0 0 0 13.4-5.2l-6.2-5.2A12 12 0 0 1 12.7 28l-6.5 5A20 20 0 0 0 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg>
+          <div><div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-6.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-6.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-6.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-6.8L2 9.6 9 9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-6.8L2 9.6 9 9z"/></svg></div><small>Posted on Google</small></div>
+        </div>
+        <div class="rev-nav">
+          <button type="button" data-dir="-1" aria-label="Previous reviews"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button type="button" data-dir="1" aria-label="Next reviews"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rev-track" id="revTrack"></div>
+  <div class="wrap">
+    <div class="cta-row">
+      <a class="btn btn-sun" href="https://captclean.com/quote/">Request a Quote</a>
+      <a class="btn btn-line" href="tel:1-780-809-1575">Give Us A Call!</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" aria-labelledby="svc-title">
+  <div class="wrap">
+    <div class="svc-head">
+      <h2 id="svc-title">Our Signature Services</h2>
+      <p>Click each to learn more.</p>
+    </div>
+    <div class="svc-grid">
+      <a class="svc" href="https://captclean.com/our-services/residential-window-cleaning/"><img src="images/icon-window.png" alt="" width="120" height="120"><h3>Window Cleaning</h3><span class="go">Learn more<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="svc" href="https://captclean.com/our-services/exterior-house-wash/"><img src="images/icon-house-wash.png" alt="" width="120" height="120"><h3>House Soft Washing</h3><span class="go">Learn more<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="svc" href="https://captclean.com/our-services/solar-panel-cleaning/"><img src="images/icon-solar.png" alt="" width="120" height="120"><h3>Solar Panel Cleaning</h3><span class="go">Learn more<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="svc" href="https://captclean.com/our-services/gutter-cleaning/"><img src="images/icon-gutter.png" alt="" width="120" height="120"><h3>Gutter Cleaning</h3><span class="go">Learn more<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="commercial">
+      <figure><img src="images/commercial.jpg" alt="Commercial store front" loading="lazy"></figure>
+      <div class="txt">
+        <h3>Looking for our commercial solutions? We offer exterior cleaning services to solar farms, casinos, condos &amp; stratas, store fronts, office buildings, airport terminal buildings, farms, and more.</h3>
+        <a class="more" href="https://captclean.com/our-services/commercial-window-cleaning/">Learn more about our commercial services <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-sun" href="https://captclean.com/quote/">Request a Quote</a>
+      <a class="btn btn-line" href="tel:1-780-809-1575">Give Us A Call!</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item"><img src="images/icon-eco.png" alt="" loading="lazy"><h4>Environmentally Friendly</h4><p>We use eco-friendly products and techniques, including a state-of-the-art reverse osmosis system.</p></div>
+      <div class="trust-item"><img src="images/icon-insured.png" alt="" loading="lazy"><h4>Fully Insured</h4><p>We are a licensed business in the province of Alberta and hold a $2,000,000 general liability policy.</p></div>
+      <div class="trust-item"><img src="images/icon-wcb.png" alt="" loading="lazy"><h4>Safety is our Priority</h4><p>All employees are WCB covered and safety trained.</p></div>
+      <div class="trust-item"><img src="images/icon-quality.png" alt="" loading="lazy"><h4>Quality Guaranteed</h4><p>We promise you 100% satisfaction! If you are ever dissatisfied with an area of service, simply let us know within 48 hours and we will re-clean at no additional charge.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video">
+  <div class="wrap">
+    <div class="vframe" id="vframe">
+      <button type="button" aria-label="Play the Capt. Clean video">
+        <img class="poster" src="images/skyline-blue.jpg" alt="" loading="lazy">
+        <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
+        <img class="vlogo" src="images/logo.png" alt="">
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote" id="quote">
+  <div class="wrap">
+    <h2>Request a Quote</h2>
+    <div class="pass">
+      <form class="pass-main" id="quoteForm">
+        <div class="pass-top">
+          <img src="images/logo.png" alt="Capt. Clean">
+          <div class="route" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-svc">Service</label>
+            <select id="f-svc" name="service">
+              <option>Residential Window Cleaning</option><option>Commercial Window Cleaning</option><option>Solar Panel Cleaning</option><option>Power Washing</option><option>Exterior House Wash</option><option>Driveway Sealing</option><option>Gutter Cleaning</option>
+            </select></div>
+          <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message"></textarea></div>
+        </div>
+        <button class="btn btn-sun" type="submit">Request a Quote</button>
+        <p class="form-note" id="formNote" role="status"></p>
+      </form>
+      <aside class="stub">
+        <img class="cap" src="images/captain.png" alt="">
+        <h3>Give Us A Call!</h3>
+        <a class="phone" href="tel:1-780-809-1575">1-780-809-1575</a>
+        <a class="mail" href="mailto:info@captclean.com">info@captclean.com</a>
+        <div class="barcode" aria-hidden="true"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="about">
+        <img src="images/captain.png" alt="" loading="lazy">
+        <div>
+          <h4>About us</h4>
+          <p>Capt. Clean Window Washing &amp; More strives to serve its own community with superior workmanship, equipment, and safety measures. When it comes to our local business, we are punctual, passionate, and professional. Our mission is to surpass our clients’ expectations and become Edmonton’s most reliable cleaning company.</p>
+          <a class="blog-link" href="https://captclean.com/2023/01/what-is-wfp-water-cleaning/"><span><small>Latest Blog Posts</small>What is WFP Water Cleaning?</span></a>
+        </div>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul class="links">
+          <li><a href="https://captclean.com/our-services/residential-window-cleaning/">Residential Window Cleaning</a></li>
+          <li><a href="https://captclean.com/our-services/commercial-window-cleaning/">Commercial Window Cleaning</a></li>
+          <li><a href="https://captclean.com/our-services/solar-panel-cleaning/">Solar Panel Cleaning</a></li>
+          <li><a href="https://captclean.com/our-services/power-washing/">Power Washing</a></li>
+          <li><a href="https://captclean.com/our-services/exterior-house-wash/">Exterior House Washing</a></li>
+          <li><a href="https://captclean.com/our-services/driveway-sealing/">Driveway Sealing</a></li>
+          <li><a href="https://captclean.com/our-services/gutter-cleaning/">Gutter Cleaning</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="links">
+          <li><a href="tel:1-780-809-1575">1-780-809-1575</a></li>
+          <li><a href="mailto:info@captclean.com">info@captclean.com</a></li>
+          <li><a href="https://captclean.com/quote/">Request a Quote</a></li>
+          <li><a href="https://captclean.com/blog/">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="board">
+      <div class="board-head">
+        <h4>Where We Serve</h4>
+        <p>We are pleased to offer our services throughout Edmonton and surrounding areas.</p>
+      </div>
+      <div class="flaps" id="flaps" data-cities="Edmonton|Sherwood Park|St. Albert|Nisku|Leduc|Spruce Grove"></div>
+    </div>
+
+    <div class="bottom">
+      <span>Copyright © <span id="yr">2024</span> Capt. Clean. All rights reserved.</span>
+      <span>Design by <a class="cd" href="https://cleaningdigital.ca/" target="_blank" rel="noopener">Cleaning Digital.</a></span>
+      <div class="social">
+        <a href="https://www.instagram.com/capt.clean.yeg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 8.2a5.4 5.4 0 0 0-1.5-3.8A5.4 5.4 0 0 0 16.6 3C15.1 2.9 8.9 2.9 7.4 3a5.4 5.4 0 0 0-3.8 1.4A5.4 5.4 0 0 0 2.1 8.2c-.1 1.5-.1 6.1 0 7.6a5.4 5.4 0 0 0 1.5 3.8A5.4 5.4 0 0 0 7.4 21c1.5.1 7.7.1 9.2 0a5.4 5.4 0 0 0 3.8-1.4 5.4 5.4 0 0 0 1.5-3.8c.1-1.5.1-6.1 0-7.6z"/></svg></a>
+        <a href="https://www.facebook.com/Capt-Clean-Window-Washing-102373932404450" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header shadow */
+  var head=document.querySelector('.head');
+  addEventListener('scroll',function(){head.classList.toggle('scrolled',scrollY>10)},{passive:true});
+
+  /* mobile nav */
+  var burger=document.querySelector('.burger');
+  burger.addEventListener('click',function(){
+    var open=document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  var dd=document.querySelector('.has-drop'), ddBtn=dd.querySelector('button');
+  ddBtn.addEventListener('click',function(){
+    var o=dd.classList.toggle('open'); ddBtn.setAttribute('aria-expanded',o);
+  });
+
+  /* reviews (from Google, as shown on captclean.com) */
+  var reviews=[
+    ['Burke Group','Capt.Clean was a great company to work with. They are quick to respond and fit you into their schedule asap. They did 3 commercial buildings and 4 residential homes in a day and half. The end product on all locations was amazing and the guys who did the work went above and beyond to make sure we were happy. Will definitely be using them again.',1],
+    ['D. Sinclair','Curt and his crew did an amazing job and is my new go to for house/window cleaning.'],
+    ['Kirsten H.','Very quick response to my request for having windows washed. Work was great and my windows were left shiny and streak free!'],
+    ['Andeng Gutierrez','Hired Curt & his team to get exterior window cleaning for our property - Best Western St. Albert. They did an amazing job, look how sparkly!! Hiring them will support their clean water projects in Africa as well!!'],
+    ['Mary Corrigan','I recently had Captain Clean come to my home to do our windows. They cleaned the inside and outside of the windows. They were fantastic. We were really impressed. I highly recommend them. Shout out to Matt. Thanks again!'],
+    ['Diane Christianson','Very impressed with the service and results (110%) for exterior window cleaning. I will rely on Capt. Clean to be my go to or future window cleaning and would not hesitate to recommend this company to my friends and family.'],
+    ['Beverly Sadler','I called on the weekend and got a nice lady to get me a quote for both inside and outside window cleaning. The quote came back in two days and I thought it was affordable. Matt showed up on time and was very considerate and polite. He did a very thorough and fantastic job. I would use this service again. Bev'],
+    ['Mikey F','Incredible value and service. Best window cleaning company ever.']
+  ];
+  var star='<svg viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.3 4.6L18.2 21 12 17.3 5.8 21l1.5-6.8L2 9.6 9 9z"/></svg>';
+  var g='<svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3A12 12 0 1 1 31.9 15l5.7-5.7A20 20 0 1 0 44 24c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8A12 12 0 0 1 31.9 15l5.7-5.7A20 20 0 0 0 6.3 14.7z"/><path fill="#4CAF50" d="M24 44a20 20 0 0 0 13.4-5.2l-6.2-5.2A12 12 0 0 1 12.7 28l-6.5 5A20 20 0 0 0 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg>';
+  var track=document.getElementById('revTrack');
+  track.innerHTML=reviews.map(function(r){
+    var ini=r[0].replace(/[^A-Za-z ]/g,'').split(' ').map(function(w){return w[0]}).join('').slice(0,2);
+    return '<article class="rev'+(r[2]?' feature':'')+'"><div class="top"><div class="who"><span class="av">'+ini+'</span><div><strong>'+r[0]+'</strong><small>'+g+'Posted on Google</small></div></div></div><div class="stars" aria-label="5 stars">'+star+star+star+star+star+'</div><blockquote>“'+r[1]+'”</blockquote></article>';
+  }).join('');
+  document.querySelectorAll('.rev-nav button').forEach(function(b){
+    b.addEventListener('click',function(){track.scrollBy({left:(+b.dataset.dir)*Math.min(420,track.clientWidth*.85),behavior:reduce?'auto':'smooth'})});
+  });
+  var down=false,sx,sl;
+  track.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl=track.scrollLeft;track.style.scrollSnapType='none'});
+  addEventListener('pointerup',function(){if(down){down=false;track.style.scrollSnapType=''}});
+  addEventListener('pointermove',function(e){if(down){track.scrollLeft=sl-(e.clientX-sx)}});
+
+  /* gauges */
+  document.querySelectorAll('.dial .ticks').forEach(function(t){
+    var s='';for(var i=0;i<=10;i++){var a=(-135+i*27)*Math.PI/180;s+='<line x1="'+(60+Math.sin(a)*40)+'" y1="'+(60-Math.cos(a)*40)+'" x2="'+(60+Math.sin(a)*34)+'" y2="'+(60-Math.cos(a)*34)+'"/>'}t.innerHTML=s;
+  });
+  function runGauges(){document.querySelectorAll('.gauge').forEach(function(gg){var p=+gg.dataset.pct;gg.querySelector('.val').style.strokeDashoffset=236*(1-p);gg.querySelector('.needle').style.transform='rotate('+(-135+270*p)+'deg)'})}
+
+  /* split-flap departures board */
+  var flaps=document.getElementById('flaps');
+  var cities=flaps.dataset.cities.split('|'), W=13;
+  flaps.innerHTML=cities.map(function(c){var s='';for(var i=0;i<W;i++){var ch=(c.toUpperCase()[i]||' ');s+='<span class="flap'+(ch===' '?' sp':'')+'" data-ch="'+ch+'">'+(reduce?ch:'')+'</span>'}return '<div class="flap-row" role="text" aria-label="'+c+'">'+s+'</div>'}).join('');
+  function runFlaps(){
+    if(reduce)return;
+    var A='ABCDEFGHIJKLMNOPQRSTUVWXYZ.';
+    flaps.querySelectorAll('.flap').forEach(function(f,i){
+      var target=f.dataset.ch; if(target===' ')return;
+      var n=6+((i*7)%9), k=0;
+      var iv=setInterval(function(){ if(k++>=n){f.textContent=target;clearInterval(iv);return} f.textContent=A[Math.floor(Math.random()*A.length)] },55);
+    });
+  }
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;if(e.target.id==='gauges')runGauges();if(e.target.id==='flaps')runFlaps();io.unobserve(e.target)})},{threshold:.35});
+    io.observe(document.getElementById('gauges'));io.observe(flaps);
+  } else {runGauges();runFlaps()}
+
+  /* video */
+  var vf=document.getElementById('vframe');
+  vf.querySelector('button').addEventListener('click',function(){
+    vf.innerHTML='<iframe src="https://www.youtube.com/embed/4FNGhNhXMvk?autoplay=1&rel=0" title="Capt. Clean video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><a href="https://www.youtube.com/watch?v=4FNGhNhXMvk" target="_blank" rel="noopener" style="position:absolute;right:16px;bottom:16px;color:#fff;font-weight:600;font-size:14px">Open on YouTube</a>';
+  });
+
+  /* quote form → email */
+  document.getElementById('quoteForm').addEventListener('submit',function(e){
+    e.preventDefault(); var f=e.target;
+    var body='Name: '+f.name.value+'\nPhone: '+f.phone.value+'\nEmail: '+f.email.value+'\nService: '+f.service.value+'\n\n'+f.message.value;
+    location.href='mailto:info@captclean.com?subject='+encodeURIComponent('Quote request: '+f.service.value)+'&body='+encodeURIComponent(body);
+    document.getElementById('formNote').textContent='Your email app is opening with your quote request. Prefer to talk? Call 1-780-809-1575.';
+  });
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
